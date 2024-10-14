@@ -1,0 +1,11 @@
+[package]
+name = "ip_spoof"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+libc = "0.2.159"
+
+[lib]
+name = "ip_spoof"
+path = "src/lib.rs"
