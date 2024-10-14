@@ -1,5 +1,5 @@
 use std::mem;
-use std::net::{Ipv4Addr, SocketAddr};
+use std::net::Ipv4Addr;
 
 #[repr(C)]
 struct IpHeader {
