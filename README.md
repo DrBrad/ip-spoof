@@ -14,6 +14,7 @@ use std::time::Duration;
 use ip_spoof::socket::RawSocket;
 
 fn main() {
+    thread::spawn(move || {
         let socket = UdpSocket::bind("0.0.0.0:8080").unwrap();
 
         println!("Listening for incoming UDP packets on port 8080...");
