@@ -96,11 +96,11 @@ impl Packet for UdpPacket {
             length: (total_length as u16).to_be(),
             id: 0,
             flags_offset: 0,
-            ttl,
+            ttl: self.ttl.to_be(),
             protocol: libc::IPPROTO_UDP as u8,
             checksum: 0,
             src_ip: u32::from(self.src_addr).to_be(),
-            dst_ip: u32::from(self.dst_addr).to_be(),
+            dst_ip: u32::from(self.dst_addr).to_be()
         };
 
         let udp_length = (8 + self.payload.len()) as u16;
@@ -225,11 +225,11 @@ impl Packet for TcpPacket {
             length: (total_length as u16).to_be(),
             id: 0,
             flags_offset: 0,
-            ttl,
+            ttl: self.ttl.to_be(),
             protocol: libc::IPPROTO_TCP as u8,
             checksum: 0,
             src_ip: u32::from(self.src_addr).to_be(),
-            dst_ip: u32::from(self.dst_addr).to_be(),
+            dst_ip: u32::from(self.dst_addr).to_be()
         };
 
         let udp_length = (8 + self.payload.len()) as u16;
@@ -242,7 +242,7 @@ impl Packet for TcpPacket {
             flags: 0,
             window_size: self.window_size.to_be(),
             checksum: 0,
-            urgent_pointer: 0,
+            urgent_pointer: 0
         };
 
         let mut packet = Vec::with_capacity(total_length);
