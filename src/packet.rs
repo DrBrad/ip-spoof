@@ -209,7 +209,7 @@ impl Packet for TcpPacket {
 
         let mut packet = Vec::with_capacity(total_length);
         let ip_header_bytes: [u8; 20] = unsafe { mem::transmute(ip_header) };
-        let udp_header_bytes: [u8; 8] = unsafe { mem::transmute(tcp_header) };
+        let udp_header_bytes: [u8; 20] = unsafe { mem::transmute(tcp_header) };
 
         packet.extend_from_slice(&ip_header_bytes);
         packet.extend_from_slice(&udp_header_bytes);
