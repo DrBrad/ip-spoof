@@ -97,7 +97,7 @@ impl Packet for UdpPacket {
             id: 0,
             flags_offset: 0,
             ttl: self.ttl.to_be(),
-            protocol: libc::IPPROTO_UDP as u8,
+            protocol: 17,
             checksum: 0,
             src_ip: u32::from(self.src_addr).to_be(),
             dst_ip: u32::from(self.dst_addr).to_be()
@@ -188,7 +188,7 @@ impl Packet for TcpPacket {
             id: 0,
             flags_offset: 0,
             ttl: self.ttl.to_be(),
-            protocol: libc::IPPROTO_TCP as u8,
+            protocol: 6,
             checksum: 0,
             src_ip: u32::from(self.src_addr).to_be(),
             dst_ip: u32::from(self.dst_addr).to_be()
